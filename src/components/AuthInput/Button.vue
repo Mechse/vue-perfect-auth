@@ -25,7 +25,7 @@ const props = defineProps({
 </div>
 </template>
 
-<style>
+<style scoped>
 .bg-color {
     background-color: v-bind("props.primaryColor")
 }

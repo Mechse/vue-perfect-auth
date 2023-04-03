@@ -15,6 +15,10 @@ const props = defineProps({
     type: String,
     default: ""
   },
+  passwordPlaceholder:{
+    type: String,
+    default: "Password (min. 8 character)"
+  }
 })
 const hasAtLeastOneSpecialChar = (value) => {
     const re = /^(?=.*[^A-Za-z0-9])[^&\\;<>]+$/;
@@ -45,7 +49,7 @@ watch(() => v$.value.password.$errors, (newError) => {
                 <a v-if="forgetPasswordLink!==''" :href="forgetPasswordLink" title="" class="text-color text-sm font-medium"> Forgot Password? </a>
         </div>
         <div class="mt-2">
-                <input id="auth-password" v-model="state.password" @input="emit('update:password', state.password)" type="password" name="" placeholder="Password (min. 8 character)" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-indigo-600 focus:border-indigo-600 sm:text-sm caret-indigo-600 dark:bg-white">
+                <input id="auth-password" v-model="state.password" @input="emit('update:password', state.password)" type="password" name="" :placeholder="passwordPlaceholder" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-indigo-600 focus:border-indigo-600 sm:text-sm caret-indigo-600 dark:bg-white">
         </div>
 </div>
 </template>
