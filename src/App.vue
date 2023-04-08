@@ -21,7 +21,7 @@ const githubTestLogin = () => {
 </script>
 
 <template>
-<div class="pt-10 md:max-w-sm mx-auto flex flex-col justify-center gap-y-6">
+<div class="font-sans pt-10 md:max-w-md mx-auto flex flex-col justify-center gap-y-6">
   <AuthLogin :showDebug="true" @login="testLogin" signUpLink="/signup" :acceptGoogle="googleTestLogin" :acceptApple="appleTestLogin" :acceptFacebook="facebookTestLogin" :acceptGithub="githubTestLogin"/>
 </div>
 </template>

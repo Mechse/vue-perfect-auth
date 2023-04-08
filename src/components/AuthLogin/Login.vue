@@ -102,12 +102,13 @@ const countThirdPartyAuth = computed(() => {
   </div>
   <div v-if="acceptThirdPartyAuth()" class="relative mt-2">
     <div class="absolute inset-0 flex items-center">
-    <div class="w-full border-t border-gray-200" />
+    <div class="w-full border-t border-gray-200 dark:text-gray-50 dark:bg-gray-700 dark:border-gray-700" />
   </div>
 
   <div class="relative flex justify-center">
-    <span class="px-2 text-sm text-gray-400 bg-white"> or </span>
+    <span class="px-2 text-sm text-gray-400 bg-white dark:text-gray-50 dark:bg-inherit"> or </span>
   </div>
+  
   </div>
   <form :class="!acceptThirdPartyAuth() && 'mt-6'" class="flex flex-col gap-y-6">
       <AuthEmail v-if="!passwordOnly" @error="errorHandler" v-model:email="user.email"/>
@@ -118,7 +119,7 @@ const countThirdPartyAuth = computed(() => {
         <p v-if="user.email !== '' && user.password !== ''" class="bg-green-200 p-4">{{ user }}</p>
       </div>
       <div v-if="signUpLink !== ''" class="-mt-3 text-center">
-        <p class="text-sm font-medium text-gray-900">
+        <p class="text-sm font-medium text-gray-900 dark:text-gray-50 ">
           Don't have an account? <router-link :to="signUpLink" title="" class="font-bold hover:underline cursor-pointer">
             Sign up now
           </router-link>

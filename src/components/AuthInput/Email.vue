@@ -16,10 +16,10 @@ watch(() => v$.value.email.$errors, (newError) => {
 </script>
 
 <template>
-    <div>
-        <label for="auth-email" class="text-sm font-bold text-gray-900"> Email </label>
+    <div class="w-full">
+        <label for="auth-email" class="text-sm font-bold text-gray-900 dark:text-gray-50"> Email </label>
         <div class="mt-2">
-            <input id="auth-email" v-model="state.email" @input="emit('update:email', state.email)" type="email" name="" placeholder="Email address" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-indigo-600 focus:border-indigo-600 sm:text-sm caret-indigo-600 dark:bg-white">
+            <input id="auth-email" v-model="state.email" @input="emit('update:email', state.email)" type="email" name="" placeholder="Email address" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-indigo-600 focus:border-indigo-600 sm:text-sm caret-indigo-600 dark:text-gray-50 dark:bg-gray-700 dark:border-gray-700">
         </div>
     </div>
 </template>

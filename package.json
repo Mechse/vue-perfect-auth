@@ -1,6 +1,6 @@
 {
   "name": "vue-perfect-auth",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "main": "dist/vue-perfect-auth.cjs.js",
   "module": "dist/vue-perfect-auth.es.js",
   "author": "Maximilian Leodolter",
@@ -12,8 +12,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npm run build:styles",
+    "build": "vite build && npm run build:unocss",
     "build:styles": "postcss src/tailwind.css -o dist/index.css",
+    "build:unocss": "unocss '*/*'",
     "preview": "vite preview"
   },
   "peerDependencies": {
@@ -22,12 +23,11 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
     "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.21",
-    "postcss-cli": "^10.1.0",
-    "tailwindcss": "^3.3.1",
+    "unocss": "^0.50.7",
     "vite": "^4.2.0"
   },
   "dependencies": {
+    "@unocss/reset": "^0.50.7",
     "@vuelidate/core": "^2.0.2",
     "@vuelidate/validators": "^2.0.2"
   }

@@ -46,12 +46,12 @@ watch(() => v$.value.password.$errors, (newError) => {
 <template>
 <div>
         <div class="flex items-center justify-between">
-                <label for="auth-password" class="text-sm font-bold text-gray-900"> Password </label>
+                <label for="auth-password" class="text-sm font-bold text-gray-900 dark:text-gray-50"> Password </label>
                 <a v-if="forgetPasswordLink!==''" :href="forgetPasswordLink" title="" class="text-color text-sm font-medium"> Forgot Password? </a>
         </div>
-        <div class="mt-2 relative">
-                <input id="auth-password" v-model="state.password" @input="emit('update:password', state.password)" :type="showPassword ? 'text' : 'password'" name="" :placeholder="passwordPlaceholder" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-indigo-600 focus:border-indigo-600 sm:text-sm caret-indigo-600 dark:bg-white">
-                <div v-if="!showPassword" class="absolute top-3 right-0  mr-3 text-xl cursor-pointer text-gray-700 dark:text-gray-200" @click="(showPassword = true)" >
+        <div class="mt-2 relative dark:text-gray-50 dark:bg-gray-700 dark:border-gray-700 rounded-lg">
+                <input id="auth-password" v-model="state.password" @input="emit('update:password', state.password)" :type="showPassword ? 'text' : 'password'" name="" :placeholder="passwordPlaceholder" class="border block w-full px-4 py-3 placeholder-gray-500 border-gray-300 rounded-lg focus:ring-indigo-600 focus:border-indigo-600 sm:text-sm caret-indigo-600  dark:text-gray-50 dark:bg-gray-700 dark:border-gray-700">
+                <div v-if="!showPassword" class="absolute top-3 right-0  mr-3 text-xl cursor-pointer text-gray-700 dark:text-gray-50 dark:bg-gray-700 dark:border-gray-700" @click="(showPassword = true)" >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5s5 2.24 5 5s-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3s3-1.34 3-3s-1.34-3-3-3z"/></svg>
                 </div>
               <div
