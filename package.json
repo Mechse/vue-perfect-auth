@@ -1,6 +1,6 @@
 {
   "name": "vue-perfect-auth",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/vue-perfect-auth.cjs.js",
   "module": "dist/vue-perfect-auth.es.js",
   "author": "Maximilian Leodolter",
