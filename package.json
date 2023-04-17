@@ -19,6 +19,9 @@
     "build:styles": "postcss src/tailwind.css -o dist/index.css",
     "build:unocss": "unocss '*/*'"
   },
+  "peerDependencies": {
+    "vue": "^3.2.47"
+  },
   "devDependencies": {
     "@types/node": "^18.15.11",
     "@vitejs/plugin-vue": "^4.1.0",
@@ -35,7 +38,6 @@
   "dependencies": {
     "@unocss/reset": "^0.51.4",
     "@vuelidate/core": "^2.0.2",
-    "@vuelidate/validators": "^2.0.2",
-    "vue": "^3.2.47"
+    "@vuelidate/validators": "^2.0.2"
   }
 }
