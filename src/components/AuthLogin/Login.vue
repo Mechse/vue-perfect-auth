@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import {ref, computed} from "vue"
+import { ref, computed } from "vue"
 import { AuthThirdPartyFacebook, AuthThirdPartyGithub } from "../AuthThirdParty";
 const emit = defineEmits(["login"])
 const props = defineProps({
@@ -55,7 +55,7 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  passwordPlaceholder:{
+  passwordPlaceholder: {
     type: String,
     default: "Password (min. 8 character)"
   }
@@ -66,7 +66,7 @@ const user = ref({
   password: ""
 })
 
-const errorHandler = (e) => {
+const errorHandler = (e: string) => {
   error.value = e
 }
 
@@ -85,35 +85,43 @@ const countThirdPartyAuth = computed(() => {
 </script>
 
 <template>
-<div class="flex flex-col gap-y-6">
-  <div class="text-center">
+  <div class="flex flex-col gap-y-6">
+    <div class="text-center">
       <h1 class="mt-12 text-3xl font-bold text-gray-900">
         {{ props.title }}
       </h1>
       <p class="mt-4 text-sm font-medium text-gray-500">
         {{ props.subtitle }}
       </p>
-  </div>
-  <div :class="[acceptThirdPartyAuth() && 'mt-12', countThirdPartyAuth >= 3 ? 'flex-row' : 'flex-col']" class="flex gap-6">
-    <AuthThirdPartyGoogle v-if="acceptGoogle" @click="acceptGoogle" :size="countThirdPartyAuth >= 3 ? 'small' : 'large'"/>
-    <AuthThirdPartyFacebook v-if="acceptFacebook" @click="acceptFacebook" :size="countThirdPartyAuth >= 3 ? 'small' : 'large'"/>
-    <AuthThirdPartyApple v-if="acceptApple" @click="acceptApple" :size="countThirdPartyAuth >= 3 ? 'small' : 'large'"/>
-    <AuthThirdPartyGithub v-if="acceptGithub" @click="acceptGithub" :size="countThirdPartyAuth >= 3 ? 'small' : 'large'"/>
-  </div>
-  <div v-if="acceptThirdPartyAuth()" class="relative mt-2">
-    <div class="absolute inset-0 flex items-center">
-    <div class="w-full border-t border-gray-200 dark:text-gray-50 dark:bg-gray-700 dark:border-gray-700" />
-  </div>
+    </div>
+    <div :class="[acceptThirdPartyAuth() && 'mt-12', countThirdPartyAuth >= 3 ? 'flex-row' : 'flex-col']"
+      class="flex gap-6">
+      <AuthThirdPartyGoogle v-if="acceptGoogle" @click="acceptGoogle"
+        :size="countThirdPartyAuth >= 3 ? 'small' : 'large'" />
+      <AuthThirdPartyFacebook v-if="acceptFacebook" @click="props.acceptFacebook"
+        :size="countThirdPartyAuth >= 3 ? 'small' : 'large'" />
+      <AuthThirdPartyApple v-if="acceptApple" @click="props.acceptApple"
+        :size="countThirdPartyAuth >= 3 ? 'small' : 'large'" />
+      <AuthThirdPartyGithub v-if="acceptGithub" @click="props.acceptGithub"
+        :size="countThirdPartyAuth >= 3 ? 'small' : 'large'" />
+    </div>
+    <div v-if="acceptThirdPartyAuth()" class="relative mt-2">
+      <div class="absolute inset-0 flex items-center">
+        <div class="w-full border-t border-gray-200 dark:text-gray-50 dark:bg-gray-700 dark:border-gray-700" />
+      </div>
 
-  <div class="relative flex justify-center">
-    <span class="px-2 text-sm text-gray-400 bg-white dark:text-gray-50 dark:bg-inherit"> or </span>
-  </div>
-  
-  </div>
-  <form :class="!acceptThirdPartyAuth() && 'mt-6'" class="flex flex-col gap-y-6">
-      <AuthEmail v-if="!passwordOnly" @error="errorHandler" v-model:email="user.email"/>
-      <AuthPassword :forgetPasswordLink="forgetPasswordLink" :primaryColor="props.primaryColor" :hoverColor="props.hoverColor" @error="errorHandler" v-model:password="user.password" :passwordPlaceholder="passwordPlaceholder"/>
-      <AuthButton @click.prevent="emit('login', user)" :primaryColor="props.primaryColor" :hoverColor="props.hoverColor">{{ props.buttonText }}</AuthButton>
+      <div class="relative flex justify-center">
+        <span class="px-2 text-sm text-gray-400 bg-white dark:text-gray-50 dark:bg-inherit"> or </span>
+      </div>
+
+    </div>
+    <form :class="!acceptThirdPartyAuth() && 'mt-6'" class="flex flex-col gap-y-6">
+      <AuthEmail v-if="!passwordOnly" @error="errorHandler" v-model:email="user.email" />
+      <AuthPassword :forgetPasswordLink="forgetPasswordLink" :primaryColor="props.primaryColor"
+        :hoverColor="props.hoverColor" @error="errorHandler" v-model:password="user.password"
+        :passwordPlaceholder="passwordPlaceholder" />
+      <AuthButton @click.prevent="emit('login', user)" :primaryColor="props.primaryColor" :hoverColor="props.hoverColor">
+        {{ props.buttonText }}</AuthButton>
       <div v-if="props.showDebug" class="flex flex-col gap-y-4">
         <p v-if="error && error.length > 0" class="bg-red-200 p-4">{{ error }}</p>
         <p v-if="user.email !== '' && user.password !== ''" class="bg-green-200 p-4">{{ user }}</p>
@@ -125,9 +133,8 @@ const countThirdPartyAuth = computed(() => {
           </router-link>
         </p>
       </div>
-  </form>
-</div>
+    </form>
+  </div>
 </template>
 
-<style>
-</style>
+<style></style>

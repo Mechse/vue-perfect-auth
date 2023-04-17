@@ -16,23 +16,24 @@ const props = defineProps({
 </script>
 
 <template>
-<div>
+  <div>
     <button
-    class="bg-color text-color inline-flex items-center justify-center w-full px-6 py-3 text-sm font-semibold leading-5 text-white transition-all duration-200 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 "
-    >
-    <slot></slot>
+      class="bg-color text-color inline-flex items-center justify-center w-full px-6 py-3 text-sm font-semibold leading-5 text-white transition-all duration-200 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 ">
+      <slot></slot>
     </button>
-</div>
+  </div>
 </template>
 
 <style scoped>
 .bg-color {
-    background-color: v-bind("props.primaryColor")
+  background-color: v-bind("props.primaryColor")
 }
+
 .bg-color:hover {
-    background-color: v-bind("props.hoverColor")
+  background-color: v-bind("props.hoverColor")
 }
+
 .text-color {
-    color: v-bind("props.textColor")
+  color: v-bind("props.textColor")
 }
 </style>

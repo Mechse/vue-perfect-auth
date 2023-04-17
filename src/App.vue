@@ -1,7 +1,7 @@
-<script setup>
-const testLogin = (login) => {
+<script setup lang="ts">
+const testLogin = (login: Function) => {
   console.log("LOGIN: ", login)
-} 
+}
 
 const googleTestLogin = () => {
   console.log("LOGIN", "GOOGLE")
@@ -21,10 +21,8 @@ const githubTestLogin = () => {
 </script>
 
 <template>
-<div class="font-sans pt-10 md:max-w-md mx-auto flex flex-col justify-center gap-y-6">
-  <AuthLogin :showDebug="true" @login="testLogin" signUpLink="/signup" :acceptGoogle="googleTestLogin" :acceptApple="appleTestLogin" :acceptFacebook="facebookTestLogin" :acceptGithub="githubTestLogin"/>
-</div>
+  <div class="font-sans pt-10 md:max-w-md mx-auto flex flex-col justify-center gap-y-6">
+    <AuthLogin :showDebug="true" @login="testLogin" signUpLink="/signup" :acceptGoogle="googleTestLogin"
+      :acceptApple="appleTestLogin" :acceptFacebook="facebookTestLogin" :acceptGithub="githubTestLogin" />
+  </div>
 </template>
-
-<style scoped>
-</style>

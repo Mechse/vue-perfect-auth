@@ -1,12 +1,11 @@
 <script setup lang='ts'>
-const props = defineProps({
+import logo from "../../assets/logos/github-logo.svg"
+defineProps({
     size: {
         type: String,
         default: "large"
     }
 })
-//@ts-ignore
-import logo from "../../assets/logos/github-logo.svg"
 </script>
 
 <template>
